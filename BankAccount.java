@@ -1,47 +1,40 @@
 package com.company;
 import java.util.Scanner;
 
-public class Main {
-    public static Integer total;
-
-    public static void main(String[] args) {
-        if (total == null) {
-            total = 10;
-        }
-      //  float total = 10;
+public class BankAccount {
+    public static void deposit(int total) {
+       // float total = 10;
+        System.out.print("Amount to deposit: ");
         Scanner in = new Scanner(System.in);
-        int userChoice;
-        boolean quit = false;
-        int total = 10;
-        do {
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Balance");
-            System.out.print("Your choice, 0 to quit: ");
-            userChoice = in.nextInt();
-            switch (userChoice) {
-                case 1:
-                    BankAccount.deposit(total);
-                    break;
-                case 2:
-                    BankAccount.withdraw();
-                      break;
-                case 3:
-                    BankAccount.balance();
-                    break;
-                case 0:
-                    quit = true;
-                    break;
-                default:
-                    System.out.println("Wrong choice.");
-                    break;
+        float amount = in.nextFloat();
 
-            }
-            System.out.println();
-        } while (!quit);
-            System.out.println("Visit again!");
-
-        return total;
-    }
+        if (amount <= 0) {
+            System.out.println("Can't deposit nonpositive amount.");
+        }
+        else {
+            total += amount;
+            System.out.println("$" + amount + " has been deposited.");
+            System.out.println("your total is $" + total);
+        }
     }
 
+    public static void withdraw() {
+        float total = 10 ;
+        System.out.print("Amount to withdraw: ");
+        Scanner in = new Scanner(System.in);
+        float amount = in.nextFloat();
+
+        if (amount <= 0 || amount > total) {
+            System.out.println("Withdrawal can't be completed.");
+        }
+        else {
+            total -= amount;
+            System.out.println("$" + amount + " has been withdrawn.");
+        }
+    }
+
+    public static void balance() {
+     //   System.out.println("Your balance: $" + total);
+    }
+
+}
