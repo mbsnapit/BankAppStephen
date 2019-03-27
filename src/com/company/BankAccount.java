@@ -60,7 +60,7 @@ public void account(){
                     withdraw(amount);
                     break;
                 case 3:
-                    getBalance(balance);
+                    getBalance();
                     break;
                 case 0:
                     quit = true;
@@ -70,7 +70,6 @@ public void account(){
                     break;
 
             }
-            System.out.println();
         } while (!quit);
         System.out.println("Visit again!");
     }
@@ -114,7 +113,7 @@ print new balance output
     instantiate date object
     output date and balance.
     */
-    public  void getBalance(double total) {
+    public  void getBalance() {
         Date date = new Date();
         System.out.println("Your balance as of " + date.toString() + " is: $ " + balance );
 
